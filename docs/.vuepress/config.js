@@ -20,7 +20,7 @@ module.exports = {
     title: 'Kinasha 的前端博客',
     description: 'Kinasha 的前端博客',
     themeConfig: {
-        // 默认值：false
+        base: '/',
         displayAllHeaders: true,
         logo: 'https://vuejs.org/images/logo.png',
         nav: [
