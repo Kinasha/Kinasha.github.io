@@ -4,7 +4,7 @@ title: Kinasha
 heroText: Kinasha
 tagline: Heigher an heigher
 actionText: 前端博客 →
-actionLink: /frontend/index.html
+actionLink: /basics/
 features:
 - title: About Me
   details: Mechanical Student,Self-learner and ByteDancer 
