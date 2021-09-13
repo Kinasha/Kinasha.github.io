@@ -105,6 +105,27 @@ var throttle = function(delay, cb) {
 - 将构造函数中的 `this` 指向空对象
 - 如构造函数没有返回值，或者返回值不是一个对象，那么返回该空对象，若有返回值，正常返回
 
+## 手写 bind 函数
+
+了解 `this` 和 `new` 操作符之后，我们可以写出如何实现一个 `bind` 函数
+
+``` js {7}
+Function.prototype._bind = function (context, ...args) {
+    let fn = this
+    if (typeof fn !== 'function') {
+        throw new Error('must be called by a function')
+    }
+    return function newFn(...newArgs) {
+        if (this instanceof newFn) {
+            return new fn(...args, ...newArgs)
+        }
+        return fn.call(context, ...args, ...newArgs)
+    }
+}
+```
+
+如高亮代码所示，重点在于判断是否是`构造函数调用`。判断是否为`构造函数调用`的代码 （参考 《你不知道的 Javascript》）十分复杂晦涩，但是这么写属实是妙不可言。
+
 ## 类型
 
 八个，`Undefined` `null`  `number`  `boolean`  `object`  `symbol`  `bigint` 

@@ -37,7 +37,6 @@ module.exports = {
     description: 'Kinasha 的前端博客',
     themeConfig: {
         base: '/',
-        displayAllHeaders: true,
         logo: 'https://vuejs.org/images/logo.png',
         nav: [
             { text: 'Home', link: '/' },
@@ -50,7 +49,6 @@ module.exports = {
             // getSidebar('essay')
 
         },
-        displayAllHeaders: true // 默认值：false
-        // sidebar: 'auto'
+        lastUpdated: '上次更新时间'
     },
 }

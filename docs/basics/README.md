@@ -1,6 +1,5 @@
-## 写在前面
-- [HTML](/basics/HTML)
-- [CSS](/basics/CSS)
-- [JavaScript](/basics/JS)
+# 写在前面
+
+一些基础的八股文，但是加上了自己的理解。希望可以帮助到你，如果有误，欢迎加我微信共同探讨。
 
 
