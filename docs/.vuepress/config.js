@@ -42,7 +42,7 @@ module.exports = {
         nav: [
             { text: 'Home', link: '/' },
             { text: '前端基础', items: buildSubItems('basics') },
-            { text: '杂记', items: buildSubItems('essay') },
+            // { text: '杂记', items: buildSubItems('essay') },
             { text: 'Github', link: 'https://github.com/Kinasha' },
         ],
         sidebar: {
