@@ -10,7 +10,7 @@ function getSidebar(dir) {
             return fileName
         }
     })
-    return sidebar
+    return sidebar.sort()
 }
 /**
  * @description: 获取当前目录下md文件的名称
@@ -28,7 +28,7 @@ function getSubFiles(currentDir, fileType = 'md') {
  * @return {*}
  */
 function buildSubItems(currentDir) {
-    const subFiles = getSubFiles(currentDir)
+    const subFiles = getSubFiles(currentDir).filter(e => !!e).sort()
     return subFiles.map(f => { return { text: f, link: `/${currentDir}/${f}` } })
 }
 module.exports = {
@@ -42,12 +42,15 @@ module.exports = {
         nav: [
             { text: 'Home', link: '/' },
             { text: '前端基础', items: buildSubItems('basics') },
+            { text: '杂记', items: buildSubItems('essay') },
             { text: 'Github', link: 'https://github.com/Kinasha' },
         ],
-        // sidebar: {
-        //     '/basics/': getSidebar('basics'),
-        //     '/essay/': getSidebar('essay')
-        // }
-        sidebar: 'auto'
+        sidebar: {
+            '/basics/': getSidebar('basics'),
+            // getSidebar('essay')
+
+        },
+        displayAllHeaders: true // 默认值：false
+        // sidebar: 'auto'
     },
 }
