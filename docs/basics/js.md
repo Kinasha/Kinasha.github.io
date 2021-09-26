@@ -105,7 +105,21 @@ var throttle = function(delay, cb) {
 - 将构造函数中的 `this` 指向空对象
 - 如构造函数没有返回值，或者返回值不是一个对象，那么返回该空对象，若有返回值，正常返回
 
-## 手写 bind 函数
+## 手写API
+
+### 手写 map
+
+```js{3}
+Array.protype.map = function(cb){
+    return this.reduce((pres,cur,index)=>{
+        pres.push(cb.call(null,cur,index,this))
+    },[])
+}
+```
+
+
+
+### 手写 bind 函数
 
 了解 `this` 和 `new` 操作符之后，我们可以写出如何实现一个 `bind` 函数
 
@@ -129,6 +143,8 @@ Function.prototype._bind = function (context, ...args) {
 ## 类型
 
 八个，`Undefined` `null`  `number`  `boolean`  `object`  `symbol`  `bigint` 
+
+
 
 ## 数组能够改变自身的方法
 

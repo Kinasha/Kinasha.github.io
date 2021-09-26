@@ -1,4 +1,52 @@
 # HTML
+
+## HTML解析
+
+我们知道，HTML最终会被解析成为 DOM ，那么在 HTML 解析的过程中，如何控制与JS、CSS的加载、解析顺序呢
+
+### 与JS的加载、解析顺序
+
+- 默认情况下，JS会阻塞 HTML 的解析（这很好理解，如果JS修改了DOM后续的解析也没有意义）
+- 使用 `async` 异步**加载** JS 、然后解析JS
+- 使用 `defer` 异步加载JS、HTML 解析完成后（DOMContentLoaded 阶段）解析JS
+
+<img src='https://image-static.segmentfault.com/215/179/2151798436-59da4801c6772_articlex' />
+
+>上面我们提到了，defer 执行的时机是 DOMContentLoaded 时间阶段、它常见Load 时间阶段的区别是什么呢？
+>
+>`DomContentLoaded`：HTML 文档解析完成
+>
+>`Load` ： 所有资源解析完成，包括文档、图片、样式表、脚本等资源
+>
+>在 Chrome 的 network 选项卡中我们可以看到， 蓝色的竖线表示`DOMContentLoaded`的时间点，红色的竖线表示`Load`的时间点，`Load`耗时总是大于等于前者的。
+
+
+
+## 元素拖拽
+
+```html
+<body>
+    <div id="container" style="width: 200px;height: 200px;background-color: grey;"></div>
+    <div id="el" style="width:50px;height: 50px;background-color: deepskyblue;"></div>
+    <script>
+        const container = document.querySelector('#container')
+        const el = document.querySelector('#el')
+        // 鼠标拖拽时有元素跟随
+        el.setAttribute('draggable', true)
+        // 鼠标拖动的默认禁止符号被取消
+        container.addEventListener('dragover', e => {
+            e.preventDefault()
+        })
+        // 放置后将元素放进 container
+        container.addEventListener('drop', e => {
+            e.target.appendChild(el)
+        })
+    </script>
+</body>
+```
+
+
+
 ## 标签语义化
 
 - 语义化标签包含：header  footer nav main article section aside 
@@ -30,5 +78,4 @@
 ## HTML元素的CORS配置属性
 
 在媒体元素上被使用的 `crossorigin` 内容属性是一个 CORS 设置属性。
-  
 

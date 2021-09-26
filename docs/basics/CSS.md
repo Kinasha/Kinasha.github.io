@@ -1,5 +1,58 @@
 # CSS
 
+## 选择器
+
+- 元素选择器 如 `div`
+
+- 群组选择器 如 `h2,p`
+
+- 通配符选择器 `*`  
+
+- 类选择器 `.className`
+
+- ID选择器 `#ID`
+
+- 属性选择器 `[color='black']`
+
+  - [foo|=‘bar’] 命中 foo 属性的值以 `bar` 或者`bar-`开头
+  - [foo~=‘bar’] 命中 foo 属性的值包含 `bar` 这个 `词` 
+  - [foo*=‘bar’] 命中 foo 属性的值包含 `bar` 这个 `子串`
+  - [foo^=‘bar’] 命中 foo 属性的值以 `bar` 开头
+  - [foo$=‘bar’] 命中 foo 属性的值以 `bar` 结尾
+
+- 后代选择器 `h2 em`
+
+  - 子元素选择器 `h2>em` 子元素可以视作后代的特殊情况
+
+- 同胞选择器
+
+  - 紧邻同胞 `h2 + p`
+  - 后续同胞 `h2 ~ p`
+
+- 伪类选择器 `a:hover`
+
+  - 伪类始终指代所依附的元素
+
+    >p:first-child
+    >
+    >第一个段落
+    >
+    >p>:first-child
+    >
+    >段落里的第一个子元素
+
+  - 一个有意思的 :not() 否定伪类 
+
+- 伪元素选择器 `p::first-line`
+
+## 继承样式
+
+- font
+- visibility
+- line-height
+
+>注意： background 和 opacity 不是继承属性
+
 ## position （定位）常用属性值
 
 - **static**
