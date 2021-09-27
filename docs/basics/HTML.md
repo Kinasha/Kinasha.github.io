@@ -22,7 +22,15 @@
 
 
 
-## 元素拖拽
+## 元素拖拽（drag & drop）
+
+- 让**被拖动元素**可以拖动：draggable = true
+- 重写**放置目标元素**的 `dragover` 事件，必须阻止默认以启用 `drop`
+- 设置**放置目标元素**的 `drop` 事件
+
+>在下面的例子中，我们实现定义了DOM对象`el`，这显然是为了展示例子的简单，然而要想写一个通用的元素拖拽demo
+>
+>- 使用 `e.dataTransfer.setData` 和 `e.dataTransfer.getData` 在**被拖动元素** 和 **放置目标元素** 之间通信
 
 ```html
 <body>
@@ -43,7 +51,45 @@
         })
     </script>
 </body>
+
 ```
+
+
+
+## MutationObserver
+
+```html
+<body>
+    <p id="foobar" href="">foobar</p>
+    <button onclick="changeClassName()">改变属性</button>
+    <button onclick="changeText()">改变文本</button>
+    <script>
+        let foo = document.querySelector('#foobar');
+        function changeClassName() {
+            foo.classList.add('foobar')
+        }
+        function changeText() {
+            foo.textContent = '福报'
+        }
+        const observer = new MutationObserver((records) => {
+            alert(`you are trying to change DOM`)
+        })
+        observer.observe(foo, { attributes: true, childList: true, characterDataOldValue: true })
+    </script>
+    <style>
+        .foobar {
+            background-color: #bfc;
+            font-size: 120px;
+        }
+    </style>
+</body>
+```
+
+
+
+
+
+## 图片懒加载
 
 
 

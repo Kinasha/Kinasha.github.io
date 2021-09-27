@@ -113,11 +113,43 @@ var throttle = function(delay, cb) {
 Array.protype.map = function(cb){
     return this.reduce((pres,cur,index)=>{
         pres.push(cb.call(null,cur,index,this))
+        return pres
     },[])
 }
 ```
 
+### 手写 filter
 
+```js
+Array.prototype.filter = function (cb) {
+    return this.reduce((pres, cur, index) => {
+        cb.call(null, cur, index, this) && pres.push(cur)
+        return pres
+    }, [])
+}
+```
+
+### 手写 every
+
+```js
+Array.prototype.every = function (cb) {
+    let flag = false
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === undefined) {
+            continue
+        }
+        flag = cb.call(null, this[i], i, this)
+        if (!flag) {
+            break
+        }
+    }
+    return flag
+}
+```
+
+
+
+写这仨应该就够了，其他的思路也差不多，注意一点是 every、some不会对稀疏数组（sparse array ）进行遍历，所以需要多加一个当前元素是否为 `undefined` 而且 `reduce` 不能停止，只能用循环语句写了。
 
 ### 手写 bind 函数
 
@@ -143,6 +175,40 @@ Function.prototype._bind = function (context, ...args) {
 ## 类型
 
 八个，`Undefined` `null`  `number`  `boolean`  `object`  `symbol`  `bigint` 
+
+## 隐式类型转换
+
+首先纠正一个误区，类型转换本身没有显式、隐式的区别。只要你足够有经验，没有隐式类型转换（《你不知道的JS》）
+
+```js
+const foo = {
+    // [Symbol.toPrimitive]() {
+    //     return true
+    // },
+    // valueOf() {
+    //     return false
+    // }
+}
+console.log(Boolean(foo))
+console.log(Number(foo))
+console.log(foo == true)
+```
+
+在我看来，比较常见的问题集中发生在 `{} 空对象` 和 `[] 空数组` 。上面以空对象为例，可以看到默认情况下，对于 Boolean 函数，参数为空对象时，返回结果是 `true` ；对于 Number 函数，参数是空对象时，返回结果是 `NaN`（注意，不要说构造函数，Javascript中没有构造函数的概念，只有`构造函数调用`，即使是ES6中的 `class` 中的 `constructor` 也只是寄生组合继承的语法糖）
+
+解开注释发现 `valueOf` 和 `[Symbol.toPrimitive]` 都能够影响到相等运算符的判断。后者优先级更高。如果忽视对 `Number` 函数造成的影响 ，可以用来解决经典的 `[] == true ` 和 `{} == true` 问题
+
+```js
+Object.prototype[Symbol.toPrimitive] = function () {
+    return false
+}
+Array.prototype[Symbol.toPrimitive] = function () {
+    return false
+}
+
+console.log({} == true) // false
+console.log([] == true) // false
+```
 
 
 
@@ -203,3 +269,24 @@ function retry(fn, times, delay) {
       console.log(rej, 'onrejected')
   })
   ```
+
+## Proxy 相关
+
+### 使用Proxy检测数组
+
+```js
+function foo(obj) {
+    let p = new Proxy(obj, {
+        get(...args) {
+            console.log(`hhh`)
+            // 这里推荐不要使用 arguments 数组 因为其已被移出web标准
+            // 推荐使用 rest parameter 和 spread operator
+            return Reflect.get(...args)
+        }
+    })
+    return p
+}
+const f = foo([1, 2, 3])
+console.log(f[0]) // 'hhh' 1
+```
+
