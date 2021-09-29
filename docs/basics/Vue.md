@@ -2,6 +2,20 @@
 
 为了方便小伙伴们自行调试，我决定 Vue 相关的demo都使用CDN的方式应用，想调试直接建个html文件就可以。当然，SFC才是yyds
 
+
+
+## 基础知识
+
+- v-if 和 v-for 嵌套使用
+
+  ```html
+   <template v-for='{isShow,name} in list'>
+      <li v-if='isShow'>{{name}}</li>
+   </template>
+  ```
+
+  否则在 `v-for` 中定义的变量，拿不到。
+
 ## 全选列表
 
 ```html
