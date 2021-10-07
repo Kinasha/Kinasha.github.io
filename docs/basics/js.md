@@ -1,5 +1,75 @@
 # JavaScript
 
+## 正则
+
+基础的正则知识可以看[这里](https://fecommunity.github.io/front-end-interview/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/JS%E7%9B%B8%E5%85%B3/12.%E6%AD%A3%E5%88%99.html)
+
+### 什么是贪婪？
+
+对于**量词** `{n,m}` 能匹配的次数大于n次就会尽可能匹配多次，直到最多m次。
+
+### 什么是先行、后行、正向、负向断言
+
+先行 lookahead  
+
+后行 lookbehead  
+
+正向 positive
+
+负向 negtive 
+
+举个例子
+
+```js
+const str1 = 'foo fuu'
+const str2 = 'oof uuf'
+
+// 正向先行 匹配 f 后面紧接着 oo
+const reg1 = /f(?=oo)/
+// 负向先行 匹配 f 后面紧接着不是 oo
+const reg2 = /f(?!oo)/
+// 正向后行 匹配 f 前面紧接着 oo
+const reg3 = /(?<=oo)f/
+// 负向后行 匹配 f 前面紧接着不是 oo
+const reg4 = /(?<!oo)f/
+
+console.log(reg1.exec(str1))
+console.log(reg2.exec(str1))
+console.log(reg3.exec(str2))
+console.log(reg4.exec(str2))
+```
+
+>先行和后行**匹配的是字符**，**命中的是位置**，先行命中左边，后行命中右边，他们在**匹配**的过程中并不**消耗**字符串
+>
+>Lookahead and lookbehind, collectively called “lookaround”, are zero-length assertions just like the start and end of line.The difference is that lookaround actually matches characters, but then gives up the match, returning only the result: match or no match. That is why they are called “assertions”. They do not consume characters in the string, but only assert whether a match is possible or not.
+>
+>[【参考】]( https://www.regular-expressions.info/lookaround.html)
+
+```js
+const leftAssertaion = 'hello'.replace(/(?=l)/g,'#') // 'he#l#lo'
+const leftAssertaion = 'hello'.replace(/(?<=l)/g,'#') // 'hel#l#o'
+```
+
+### 什么是反向引用
+
+可以用来查找AABB、BBAA类型的字符
+
+```js
+const str = "d1122jj7667h6868s9999";
+//查找AABB型的数字
+console.log(str.match(/(\d)\1(\d)\2/)); //1122
+//查找ABBA型的数字
+console.log(str.match(/(\d)(\d)\2\1/)); //7667
+//查找ABAB型的数字
+console.log(str.match(/(\d)(\d)\1\2/)); //6868
+//查找四个连续相同的数字
+console.log(str.match(/(\d)\1\1\1/));   //9999
+```
+
+
+
+
+
 ## 作用域链
 
 **作用域**是在运行时代码中的某些特定部分中变量，函数和对象的可访问性。
