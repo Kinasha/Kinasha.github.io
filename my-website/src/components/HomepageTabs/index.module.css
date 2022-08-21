@@ -1,0 +1,38 @@
+.tab-container{
+    padding: 3vw;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    background-color:#2e8555;
+    border-radius: 5%;
+    box-sizing: border-box;
+    color: white;
+}
+.tab-container:hover{
+    transform: scale(1.2);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.tab-content{
+    font-size: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+.tab-icon{
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-right: 10%;
+}
+.tab-content-title{
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.tab-container-desc{
+    font-size: 0.5rem;
+}
