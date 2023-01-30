@@ -1,5 +1,11 @@
 # CSS
 
+## 纯 CSS 实现气泡动效
+>[预览地址](https://codesandbox.io/s/sparkling-hooks-9xopgi?file=/index.html)
+
+使用自定义变量 （--scale，--translate-left等）将 transform 属性解耦。因为 transform 属性并非 **简写属性** ，不能像背景（background）一样拆分成多个独立的属性。（浏览器支持中）。
+
+如果想要每次变化的值是随机数，可以添加一个 raf 的定时器，将 offset 作为变量，每次绘制时随机产生，只要保持关键帧（归位）即可。
 ## 选择器
 
 - 元素选择器 如 `div`
@@ -194,8 +200,8 @@
       - 子绝父相，计算margin-left  （使用`calc(50% - width/2)` ）
       - 子绝父相，transformX
     - 未知宽度：
-      - grid 布局 jutstify-content 或者 justify-items
-      - flex布局 jutstify-content 或者 justify-items（着重讲一下content 和 items的区别）
+      - grid 布局 justify-content 或者 justify-items
+      - flex布局 justify-content 或者 justify-items（着重讲一下content 和 items的区别）
 - 垂直居中
   - 文本：line-height = height
   - 同上 align-items
