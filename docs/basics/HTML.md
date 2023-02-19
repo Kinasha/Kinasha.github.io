@@ -15,6 +15,7 @@
 >上面我们提到了，defer 执行的时机是 DOMContentLoaded 时间阶段、它常见Load 时间阶段的区别是什么呢？
 >
 >`DomContentLoaded`：HTML 文档解析完成
+> DomContentLoaded 的时间要早于 React 中 useEffect 首次执行的时间。
 >
 >`Load` ： 所有资源解析完成，包括文档、图片、样式表、脚本等资源
 >
