@@ -2,12 +2,15 @@
 ```js
 const [state, setState] = useState(initialState)
 ```
-如果你向 initialState 传递一个函数，它会被视作是初始化函数，react 会调用这个函数，并且将这个函数的返回值作为初始状态。所以，这个初始函数应当是一个纯函数（它应当没有任何参数，而且应当**幂等**），为了保证你的不会制造出 `accidential impurities` ，react 会在严格模式下将这个 Initializer 调用两次。
+最常用的 hook ，但是有两个注意点
+1. 如果你向 initialState 传递一个函数，它会被视作是初始化函数，react 会调用这个函数，并且将这个函数的返回值作为初始状态。初始函数应当是一个纯函数（它应当没有任何参数，而且应当**幂等**），为了保证你的不会制造出 `accidential impurities` 。
+2. react 会在严格模式下将这个 Initializer 调用两次。
 
 ## useEffect
 ```js
 useEffect(setup, dependencies?)
 ```
+第二常用的 hook，用于在 「自变量发生变化」后触发副作用。
 useEffect 常用于组件首次挂载时需要发请求。（此时，Dependencies 为空数组）
 在 setup 中可以返回一个函数，称之为 cleanup 函数。react 会在组件从 DOM 中 removed 之后调用 cleanup 函数。
 
