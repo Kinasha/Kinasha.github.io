@@ -1,0 +1,95 @@
+## Flex 布局
+
+>容器：用来开启 flex 布局的父元素
+>
+>项目：开启了 flex 布局的容器中的子元素
+
+主要是六个容器属性、六个项目属性
+
+### 容器属性
+
+- Flex-direction
+
+  - 可选值：**row** | row-reverse | column | column-reverse
+  - 决定 `主轴` 的方向，或者说放置项目的方式，如果是 `row` 就像个正常人，一行一行地放；如果是 `column` 就像玩小猫钓鱼，一列一列地放。
+
+- Flex-wrap
+
+  - 可选值： **nowrap** | wrap | wrap-reverse
+  - 决定容器内项目是否可以换行。`nowrap` 可能会导致项目溢出容器或被压缩；`wrap` 正常换行；`wrap-reverse` 从 `交叉轴` 的末端开始放置容器，正常换行。*注意：`nowrap` 中间没有 `-`*
+
+- Flex-flow
+
+  - Flex-direction 和 flex-wrap 的缩写形式
+
+- Justify-content
+
+  - 可选值：**flex-start** | flex-end | center | space-around | space-between| space-evenly 
+  - 项目在 `主轴` 上的对齐方式，可以理解成就是左对齐、右对齐、水平居中。
+  - `space-around` ：每个项目左右两边距离相等（中间缝隙是两边缝隙的两倍）
+  - `space-between`： 每**两个项目之间**距离相等（只有中间缝隙，两边缝隙为零）
+  - `space-evenly`：项目之间缝隙相等（中间缝隙等于两边缝隙）
+
+  >注意：在弹性盒子布局中，justify-items 属性会被忽略
+
+- Align-content
+
+  - 可选值：**flex-start** | flex-end | center | space-around | space-between | space-evenly
+  - 项目在 `交叉轴` 上的对齐方式，可以理解成上对齐、下对齐、垂直居中。
+
+- Align-items
+
+  - 设定项目 align-self  属性的默认值但是实际上并不太用得上
+  - 只能在弹性盒子和网格盒子中使用
+  - 再次强调在弹性盒子布局中，justify-items 属性会被忽略
+
+### 项目属性
+
+- Order
+  - 可选值：数字默认是 `0`
+  - 数值越小，越排在主轴方向（默认从左到右）的前面
+- Flex-grow
+  - 可选值 ：数值默认是 `0`
+  - 如何处理主轴上剩余空间
+- Flex-shrink
+  - 如何处理主轴上溢出空间
+- Flex-basis
+  - 项目占据主轴的空间，优先级高于设置的 `width` 属性
+- Flex
+  - `flex-grow` `flex-shrink` 和 `flex-basis` 的缩写
+  -  单值语法：
+    - 无单位数字：视作 `flex：<number> 1 0 `  即传入值被视作 `flex-grow` 同时 `flex-shrink` 被假定为 1，`flex-basis` 被假定为 0
+    - 有效宽度：被视作 `flex-basis` 的值 `flex-grow` 和 `flex-shrink` 都为 1 
+    - 关键字：auto、 initial
+  - 双值语法：第一个数字必须为无单位数，它会被视作是 `flex-grow` 的值。第二个数根据是否无单位数被视作 `flex-shrink` 或者 `flex-basis`
+  - 三值语法：分别对应 `flex-grow` `flex-shrink` 和 `flex-basis` 
+- Align-self
+  - 可选值 ：**auto** | flex-start | flex-end | center | baseline | stretch
+  - 允许某个项目在交叉轴上有独特的定位方式，可以覆盖 `align-items` 设置的默认值
+
+## 手写一个左侧定宽右侧撑满的布局
+
+```html{17}
+<div id="wrapper">
+        <div id="left"></div>
+        <div id="right"></div>
+</div>
+<style>
+    #wrapper {
+        display: flex;
+        height: 100vh;
+    }
+
+    #left {
+        width: 300px;
+        background-color: #158bb8;
+    }
+
+    #right {
+        flex-grow: 1;
+        background-color: #1491a8;
+    }
+</style>
+```
+
+
