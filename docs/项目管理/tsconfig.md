@@ -41,3 +41,5 @@ TypeScript 包括一组默认的内置 JS API 类型定义（如 `Math` ），
 ### ForceConsistentCasingInFileNames
 
 区分文件大小写，在和 windows 合作的时候非常有用
+
+## isolatedModule
