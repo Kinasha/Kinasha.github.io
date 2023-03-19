@@ -119,7 +119,8 @@ const foo = useCallback(()=>doSomething(),[deps])
 
 ## useLayoutEffect
 
-在每次浏览器重绘时触发的 hook ，对于性能有伤害。
+在每次浏览器重绘之前触发的 hook ，对于性能有伤害。
+
 典型的例子是：实现当 tooltip 不能在上方被放下时，放到下面。
 ![image.png](https://p5.music.126.net/obj/wo3DlcOGw6DClTvDisK1/24786996940/f37b/9e52/62f3/a97b0bb8688267c489221791c33016dc.png)
 
