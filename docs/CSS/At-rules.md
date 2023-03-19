@@ -1,4 +1,4 @@
- 记录 CSS 中的 `@` 规则（At-rules），例如 `@media` 媒体查询，`@container` 容器查询等。
+记录 CSS 中的 `@` 规则（At-rules），例如 `@media` 媒体查询，`@container` 容器查询等。
 
 ## [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
 
@@ -10,14 +10,10 @@
 
 [举个 🌰](https://codesandbox.io/s/layer-gui-ze-shi-yan-vujzzg)
 
-
 ![image.png](https://p5.music.126.net/obj/wo3DlcOGw6DClTvDisK1/25868095628/1bf2/203e/a6f8/ec90159a492d13320be3016a56e1f7bf.png)
 
-
-## @container 
+## @container
 
 容器查询，
 
-
 ## @font-face
-

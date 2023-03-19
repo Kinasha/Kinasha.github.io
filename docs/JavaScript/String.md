@@ -1,4 +1,3 @@
-
 ## 字符串在 JS 中是常量
 
 ```
@@ -13,4 +12,3 @@ console.log(str.replace(reg, ""));
 console.log("💡", foo.name); // foo.name 不变
 
 ```
-
