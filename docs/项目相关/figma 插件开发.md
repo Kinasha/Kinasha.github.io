@@ -95,7 +95,16 @@ someLayer.component
 7. PrimaryAlignItems
 8. Coutn
 
+还有一个 itemReverseZIndex
+
 如何设置一个元素的 spacebetween
+
+将，
+
+Autolayout 时还有一个坑，
+添加 AutoLayout 会改变子图层的顺序，
+可以通过翻转解决
+参考[这篇](https://forum.figma.com/t/layer-order-in-auto-layout/2240/32)
 
 
 ## 如何添加 border 
