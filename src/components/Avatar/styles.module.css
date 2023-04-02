@@ -1,4 +1,4 @@
-img.hero_avatar {
+.avatar {
   box-sizing: content-box;
   --s: 280px; /* image size */
   --b: 5px; /* border thickness */
@@ -28,6 +28,6 @@ img.hero_avatar {
   transform: scale(var(--f));
   transition: 0.5s;
 }
-img.hero_avatar:hover {
+.avatar:hover {
   --f: 1.35; /* hover scale */
 }
