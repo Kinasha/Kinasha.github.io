@@ -1,10 +1,14 @@
 .avatar {
   box-sizing: content-box;
-  --s: 280px; /* image size */
-  --b: 5px; /* border thickness */
-  --c: rgb(54, 47, 53); /* border color */
+  --s: 280px;
+  /* image size */
+  --b: 5px;
+  /* border thickness */
+  --c: rgb(54, 47, 53);
+  /* border color */
   --bg: rgb(75, 62, 62);
-  --f: 1; /* initial scale */
+  --f: 1;
+  /* initial scale */
 
   width: var(--s);
   aspect-ratio: 1;
@@ -15,19 +19,17 @@
   --_o: calc((1 / var(--f) - 1) * var(--s) / 2 - var(--b));
   outline: var(--b) solid var(--c);
   outline-offset: var(--_o);
-  background: radial-gradient(
-      circle closest-side,
+  background: radial-gradient(circle closest-side,
       var(--bg) calc(99% - var(--b)),
       var(--c) calc(100% - var(--b)) 99%,
-      #0000
-    )
-    var(--_g);
-  -webkit-mask: linear-gradient(#000 0 0) no-repeat 50% calc(1px - var(--_o)) /
-      calc(100% / var(--f) - 2 * var(--b) - 2px) 50%,
+      #0000) var(--_g);
+  -webkit-mask: linear-gradient(#000 0 0) no-repeat 50% calc(1px - var(--_o)) / calc(100% / var(--f) - 2 * var(--b) - 2px) 50%,
     radial-gradient(circle closest-side, #000 99%, #0000) var(--_g);
   transform: scale(var(--f));
   transition: 0.5s;
 }
+
 .avatar:hover {
-  --f: 1.35; /* hover scale */
+  --f: 1.35;
+  /* hover scale */
 }
