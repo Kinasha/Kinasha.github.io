@@ -115,4 +115,8 @@ Autolayout 时还有一个坑，
 
 考虑 box-sizing
 
+## 如何找到文件的 key 
 
+## 如何将图层修改为绝对定位
+
+LayoutMode = 'ABSOLUTE' 前提是父节点的 LayoutMode 不能为 NONE
