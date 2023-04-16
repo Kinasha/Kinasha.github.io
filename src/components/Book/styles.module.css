@@ -1,0 +1,82 @@
+  .book {
+    width: 135px;
+    height: 200px;
+    position: relative;
+    animation: 1s b;
+    transform: rotateY(-30deg);
+    transform-style: preserve-3d;
+    transition: transform 1s;
+  }
+
+  .book::before {
+    background: linear-gradient(90deg,
+        #fff,
+        #f9f9f9 5%,
+        #fff 10%,
+        #f9f9f9 15%,
+        #fff 20%,
+        #f9f9f9 25%,
+        #fff 30%,
+        #f9f9f9 35%,
+        #fff 40%,
+        #f9f9f9 45%,
+        #fff 50%,
+        #f9f9f9 55%,
+        #fff 60%,
+        #f9f9f9 65%,
+        #fff 70%,
+        #f9f9f9 75%,
+        #fff 80%,
+        #f9f9f9 85%,
+        #fff 90%,
+        #f9f9f9 95%,
+        #fff);
+    content: " ";
+    height: 194px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+    transform: translateX(107px) rotateY(90deg);
+    width: 48px;
+  }
+
+  .book::after {
+    background-color: #01060f;
+    border-radius: 0 2px 2px 0;
+    -webkit-box-shadow: -10px 0 50px 10px #aaa;
+    box-shadow: -10px 0 50px 10px #aaa;
+    content: " ";
+    height: 200px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transform: translateZ(-25px);
+    transform: translateZ(-25px);
+    width: 135px;
+  }
+
+  .book> :first-child {
+    background-color: #01060f;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 5px 5px 20px #aaa;
+    height: 200px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateZ(25px);
+    width: 135px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .bookContainer {
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    perspective: 600px;
+  }
+
+  .book:hover {
+    transform: rotateY(-5deg);
+  }

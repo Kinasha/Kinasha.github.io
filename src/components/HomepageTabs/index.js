@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./index.module.css";
+import Book from "../Book";
 
 const data = [
   {
@@ -80,7 +80,7 @@ export default function HomepageTabs(options) {
         justifyContent: "center",
       }}
     >
-      {data.map((item, index) => (
+      {/* {data.map((item, index) => (
         <div
           className={style["tab-container"]}
           key={index}
@@ -100,6 +100,9 @@ export default function HomepageTabs(options) {
             <p className={style["tab-content-desc"]}>{item.description}</p>
           </div>
         </div>
+      ))} */}
+      {data.map((item, index) => (
+        <Book url={item.imageURL} />
       ))}
     </div>
   );
