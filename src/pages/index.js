@@ -6,6 +6,7 @@ import clsx from "clsx";
 import React from "react";
 
 import Avatar from "../components/Avatar";
+import { ShinyButton } from "../components/ShinyButton";
 import styles from "./index.module.css";
 
 function HomepageHeader() {
@@ -17,11 +18,8 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro"
-          >
-            在？看看八股
+          <Link to="/docs/intro">
+          <ShinyButton />
           </Link>
         </div>
       </div>
