@@ -8,6 +8,7 @@ const [state, setState] = useState(initialState);
 
 1. 如果你向 initialState 传递一个函数，它会被视作是初始化函数，react 会调用这个函数，并且将这个函数的返回值作为初始状态。初始函数应当是一个纯函数（它应当没有任何参数，而且应当**幂等**），这是为了保证你的不会制造出 `accidential impurities` 。
 2. react 会在严格模式下将这个 Initializer 调用两次。
+3. setState 可以接收一个函数，如果 setState 的入参不是一个函数，它在 React 18 下可能会被批量执行
 
 ## useEffect
 

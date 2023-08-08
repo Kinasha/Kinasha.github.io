@@ -1,5 +1,7 @@
 ## TypeRoots
 
+我们通常使用的类型包都是 `@types` 域下的。它们都是由 [DefinitelyTyped](https://github.com/DefinitelyTyped) 这个组织贡献的，然而有一些三方包例如 Figma 插件的类型包就是 `@figma/plugin-tyings`，此时`TypeRoots` 选项就可以派上用场了。
+
 默认情况下，所有可见的“ @types ”包都包含在您的编译中。任何封闭文件夹的 node_modules/@types 中的包都被认为是可见的。例如，这意味着 ./node_modules/@types/ 、 ../node_modules/@types/ 、 ../../node_modules/@types/ 等中的包。
 
 如果指定了 typeRoots ，则只包含 typeRoots 下的包。例如：
