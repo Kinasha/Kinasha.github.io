@@ -10,3 +10,8 @@ cmd + p ，输入 `>snippets` 进入 snippets 管理页面
 
 
 ## 如何解决换行、变量替换
+
+editor.linefeed 
+
+
+- 
